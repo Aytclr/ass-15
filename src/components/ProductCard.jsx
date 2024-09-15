@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProductCard = () => {
+const ProductCard = ({name,image,price,id,dampingRate,amount}) => {
   return (
     <div className="card shadow-lg mb-3">
       <div className="row g-0">
