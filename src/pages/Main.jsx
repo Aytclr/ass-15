@@ -13,7 +13,7 @@ const navigate=useNavigate()
            className="btn btn-outline-primary px-4">
             Add New Product
           </button>
-          <button className="btn btn-primary px-4 ms-3">See Products</button>
+          <button onClick={()=>navigate("/ProductList")} className="btn btn-primary px-4 ms-3">See Products</button>
         </div>
       </div>
     </main>
