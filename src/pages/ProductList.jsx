@@ -34,7 +34,7 @@ getProduts()
         <>
           <article id="product-panel" className="col-md-5">
             {
-              products.map((product)=>(<ProductCard {...product} key={product.id} />))
+              products.map((product)=>(<ProductCard {...product} key={product.id} getProduts={getProduts} />))
             }
             
           </article>
