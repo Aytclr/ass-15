@@ -6,7 +6,7 @@ const navigate=useNavigate()
   return (
     <nav className="navbar navbar-expand-lg bg-secondary">
   <div className="container-fluid">
-    <a className="navbar-brand text-white" to="/">Shoping Card</a>
+    <a className="navbar-brand text-white" onClick={()=>navigate("/")} >Shoping Card</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
