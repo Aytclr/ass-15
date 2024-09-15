@@ -1,9 +1,10 @@
 import axios from "axios";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({name,image,price,id,dampingRate,amount,getProduts}) => {
 
-  
+  const navigate = useNavigate()
 
   const handleDelete=async()=>{
     await axios.delete(
@@ -15,8 +16,22 @@ const ProductCard = ({name,image,price,id,dampingRate,amount,getProduts}) => {
   const handlePlus=async()=>{
       await axios.put(
         `https://66e6e0ff17055714e58acda4.mockapi.io/products/${id}`,
+        {name,image,price,id,dampingRate,amount: Number(amount)+1}
+      )
+      getProduts()
+    }
+
+    const handleMinus=async()=>{
+      if(Number(amount)>1){
+        await axios.put(
+        `https://66e6e0ff17055714e58acda4.mockapi.io/products/${id}`,
         {name,image,price,id,dampingRate,amount: Number(amount)-1}
       )
+    }else if(Number(amount)===1){
+      handleDelete()
+    }
+      
+      getProduts()
     }
 
 
@@ -31,6 +46,7 @@ const ProductCard = ({name,image,price,id,dampingRate,amount,getProduts}) => {
             alt={"name"}
             height="250px"
             title={""}
+            onClick={()=>navigate(`/UpdateProduct/${name}`,{state:{name,image,price,id,dampingRate,amount}})}
           />
         </div>
         <div className="col-md-7">
@@ -48,7 +64,7 @@ const ProductCard = ({name,image,price,id,dampingRate,amount,getProduts}) => {
             </div>
             <div className="border border-1 border-dark shadow-lg d-flex justify-content-center p-2">
               <div className="quantity-controller">
-                <button className="btn btn-secondary btn-sm bg-danger">
+                <button onClick={handleMinus} className="btn btn-secondary btn-sm bg-danger">
                   <i className="fas fa-minus"></i>
                 </button>
                 <p className="d-inline mx-4" id="product-quantity">
