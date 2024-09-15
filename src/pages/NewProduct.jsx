@@ -20,7 +20,7 @@ const NewProduct = () => {
   
   const handleSubmit=async(e)=>{
     e.preventDefault();
-    await axios.post("https://63f4e5583f99f5855db9e941.mockapi.io/products",formdata)
+    await axios.post("https://66e6e0ff17055714e58acda4.mockapi.io/products",formdata)
     setFormData(initialState)
   }
   return (

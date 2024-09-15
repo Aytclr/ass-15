@@ -35,7 +35,7 @@ const ProductForm = ({ handleChange, handleSubmit }) => {
             onChange={handleChange}
             type="number"
             className="form-control"
-            id="quantity"
+            id="amount"
             required
           />
         </div>

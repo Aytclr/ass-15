@@ -14,7 +14,7 @@ const ProductList = () => {
 
   const getProduts=async()=>{
     try {
-      const {data} = await axios("https://63f4e5583f99f5855db9e941.mockapi.io/products")
+      const {data} = await axios("https://66e6e0ff17055714e58acda4.mockapi.io/products")
       setProducts(data)
       setErrorState(false)
     } catch (error) {
@@ -39,7 +39,7 @@ getProduts()
             
           </article>
           <article className="col-md-5 m-3">
-            <CardTotal {...product}  />
+            <CardTotal products={products}  />
           </article>
         </>
 
