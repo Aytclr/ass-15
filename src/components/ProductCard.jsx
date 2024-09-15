@@ -3,12 +3,24 @@ import React from "react";
 
 const ProductCard = ({name,image,price,id,dampingRate,amount,getProduts}) => {
 
+  
+
   const handleDelete=async()=>{
     await axios.delete(
       `https://66e6e0ff17055714e58acda4.mockapi.io/products/${id}`
     )
     getProduts()
   }
+
+  const handlePlus=async()=>{
+      await axios.put(
+        `https://66e6e0ff17055714e58acda4.mockapi.io/products/${id}`,
+        {name,image,price,id,dampingRate,amount: Number(amount)-1}
+      )
+    }
+
+
+
   return (
     <div className="card shadow-lg mb-3">
       <div className="row g-0">
@@ -36,13 +48,13 @@ const ProductCard = ({name,image,price,id,dampingRate,amount,getProduts}) => {
             </div>
             <div className="border border-1 border-dark shadow-lg d-flex justify-content-center p-2">
               <div className="quantity-controller">
-                <button className="btn btn-secondary btn-sm">
+                <button className="btn btn-secondary btn-sm bg-danger">
                   <i className="fas fa-minus"></i>
                 </button>
                 <p className="d-inline mx-4" id="product-quantity">
                   {amount}
                 </p>
-                <button className="btn btn-secondary btn-sm">
+                <button onClick={handlePlus} className="btn btn-secondary btn-sm bg-danger">
                   <i className="fas fa-plus"></i>
                 </button>
               </div>
